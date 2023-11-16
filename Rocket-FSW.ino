@@ -125,8 +125,8 @@ void setup()
   Serial.println("LSM Found");
   RadioHelpers::writeMessage("LSM Found");
 
-  ESP_CAMERA::init_stream_camera();
-  frame = (byte *)malloc(10000);
+  //ESP_CAMERA::init_stream_camera();
+  //frame = (byte *)malloc(10000);
 
   RadioHelpers::writeMessage("Camera Initialized");
   
@@ -163,7 +163,7 @@ void loop()
   
   RadioHelpers::writeBytes((byte *)telemetry.c_str(), strlen(telemetry.c_str()));
 
-  if (RadioHelpers::stream)
+  /*if (RadioHelpers::stream)
   {
     int bytes = ESP_CAMERA::get_frame(frame, true);
     if (bytes > 0)
@@ -174,7 +174,7 @@ void loop()
 
     ESP_CAMERA::get_frame(NULL, false, frameNum);  
     frameNum++;
-  }
+  }*/
 
 
   double stopTime = millis() - start;
